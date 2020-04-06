@@ -1,3 +1,4 @@
+langauge: generic
 sudo: required
 services:
     - docker
@@ -15,7 +16,7 @@ after_success:
     # Log in to docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # Take those images and push them to docker hub
-    - docker push -t harshakalva/multi-client
-    - docker push -t harshakalva/multi-nginx
-    - docker push -t harshakalva/multi-server
-    - docker push -t harshakalva/multi-worker
+    - docker push  harshakalva/multi-client
+    - docker push  harshakalva/multi-nginx
+    - docker push  harshakalva/multi-server
+    - docker push  harshakalva/multi-worker
