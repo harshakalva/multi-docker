@@ -1,0 +1,42 @@
+{
+    "AWSEBDockerrunVerion": 2,
+    "containerDefinitions": [
+        {
+            "name": "multi-client",
+            "image": "harshakalva/multi-client",
+            "hostname": "client",
+            "essential": false,
+            "memory": 128
+        },
+        {
+            "name": "multi-server",
+            "image": "harshakalva/multi-server",
+            "hostname": "api",
+            "essential": false,
+            "memory": 128
+        },
+        {
+            "name": "multi-worker",
+            "image": "harshakalva/multi-worker",
+            "hostname": "worker",
+            "essential": false,
+            "memory": 128
+        },
+        {
+            "name": "nginx",
+            "image": "harshakalva/multi-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "memory": 128,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPost": 80
+                }
+            ],
+            "links": ["client", "server"]
+        }
+
+    ]
+    
+}
