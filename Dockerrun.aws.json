@@ -1,15 +1,15 @@
 {
-    "AWSEBDockerrunVerion": 2,
+    "AWSEBDockerrunVersion": 2,
     "containerDefinitions": [
         {
-            "name": "multi-client",
+            "name": "client",
             "image": "harshakalva/multi-client",
             "hostname": "client",
             "essential": false,
             "memory": 128
         },
         {
-            "name": "multi-server",
+            "name": "api",
             "image": "harshakalva/multi-server",
             "hostname": "api",
             "essential": false,
@@ -31,10 +31,10 @@
             "portMappings": [
                 {
                     "hostPort": 80,
-                    "containerPost": 80
+                    "containerPort": 80
                 }
             ],
-            "links": ["client", "server"]
+            "links": ["client", "api"]
         }
 
     ]
